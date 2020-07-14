@@ -11,7 +11,7 @@ namespace Aula37E_players.Models
         public string Texto { get; set; }
         public string Imagem { get; set; }
 
-        private const string PATH = "Database/noticias.csv";
+        private const string PATH = "Database/noticia.csv";
 
         public Noticias(){
             CreateFolderAndFile(PATH);
@@ -24,7 +24,7 @@ namespace Aula37E_players.Models
         }
 
          private string PreparararLinha(Noticias a){
-            return $"{a.IdNoticia}; {a.Titulo}; {a.Texto}";
+            return $"{a.IdNoticia}; {a.Titulo};{a.Imagem}";
         }
 
         public List<Noticias> ReadAll()
@@ -34,13 +34,12 @@ namespace Aula37E_players.Models
              foreach (var item in linhas)
             {
                 string[] linha = item.Split(";");
-                Noticias noticia1 = new Noticias();
-                noticia1.IdNoticia = Int32.Parse(linha[0]);
-                noticia1.Titulo = linha[1];
-                noticia1.Texto = linha[2];
-                noticia1.Imagem = linha[3];
-
-                noticias.Add(noticia1);
+                Noticias noticia = new Noticias();
+                noticia.IdNoticia = Int32.Parse(linha[0]);
+                noticia.Titulo = linha[1];
+                noticia.Imagem = linha [2];
+    
+                noticias.Add(noticia);
             }
             return noticias;
         }
@@ -49,7 +48,7 @@ namespace Aula37E_players.Models
         {
             
         }
-
+        
         public void Delete(int id)
         {
              List<string> linhas = ReadAllLinesCSV(PATH);

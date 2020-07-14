@@ -35,6 +35,10 @@ namespace Aula37E_players.Models
             ReescreverCSV(PATH, linhas);
         }
 
+        /// <summary>
+        /// Le as linhas do csv
+        /// </summary>
+        /// <returns>Lista de Equipes</returns>
         public List<Equipe> ReadAll()
         {
             List<Equipe> equipes = new List<Equipe>();
