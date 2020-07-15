@@ -2,8 +2,8 @@
     @{
         ViewData["Title"] = "Equipes";
     }
-    
-    <form action="@Url.Action("Cadastrar")" method="post">
+     
+    <form action="@Url.Action("Cadastrar")" method="post" enctype="multipart/form-data">
      
       <label for="IdEquipe">IdEquipe</label>
       <input type="text" name="IdEquipe" id="IdEquipe">
@@ -12,7 +12,7 @@
       <input type="text" name="Nome" id="Nome">
 
       <label for="Imagem">Imagem</label>
-      <input type="text" name="Imagem" id="Imagem">
+      <input type="File" name="Imagem" id="Imagem">
 
 
       <button type="submit">Cadastrar</button>
@@ -28,7 +28,8 @@
             <tr>
                 <td>@e.IdEquipe</td>
                 <td>@e.Nome</td>
-                <td>@e.Imagem</td>
+                <td><img src="img/equipes/@e.Imagem" alt="Imagem da equipe @e.Nome" width="40"></td>
+                <td><a asp-area="" asp-controller="Equipe" asp-action="Excluir" asp-route-id="@e.IdEquipe">Excluir</a></td>
             </tr>
         }
     </tbody>
