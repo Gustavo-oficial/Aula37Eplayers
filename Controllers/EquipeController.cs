@@ -55,7 +55,7 @@ namespace Aula37E_players.Controllers
         }
 
 
-          [Route("{id}")]
+          [Route("Equipe/{id}")]
         public IActionResult Excluir(int id)
         {
             equipe.Delete(id);

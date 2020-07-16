@@ -54,8 +54,8 @@ namespace Aula37E_players.Controllers
             return LocalRedirect("~/Noticia");
         }
 
-         [Route("{id}")]
-        public IActionResult ExcluirNoticia(int id)
+         [Route("Noticia/{id}")]
+        public IActionResult Excluir(int id)
         {
             noticiaModel.Delete(id);
             ViewBag.Noticias = noticiaModel.ReadAll();
